@@ -1,0 +1,219 @@
+@import "tailwindcss";
+@import "leaflet/dist/leaflet.css";
+
+@theme {
+  --color-bg: #0b100f;
+  --color-surface: #141c1a;
+  --color-surface-2: #1b2623;
+  --color-fg: #e7eeea;
+  --color-muted: #8b9690;
+  --color-faint: #5c6762;
+  --color-primary: #6fbfb2;
+  --color-primary-fg: #0b100f;
+  --color-border: #24302c;
+  --color-paper: #eef2ee;
+  --color-ink: #1a2421;
+  --color-ink-muted: #5c6b64;
+  --color-rule: #c5d0c9;
+  --color-risk-high: #c45c4a;
+  --color-risk-mid: #c4a14a;
+  --color-risk-low: #6a9a78;
+  --color-flow-in: #6ec4e8;
+  --color-flow-side: #8eb4d4;
+  --color-flow-by: #7ecb9a;
+  --color-flow-out: #e0a36a;
+  --font-sans: "Noto Sans SC", "WenQuanYi Zen Hei", "PingFang SC", "Microsoft YaHei", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Noto Serif SC", "WenQuanYi Zen Hei", "Songti SC", ui-serif, serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  html,
+  body,
+  #app {
+    min-height: 100%;
+    background: var(--color-bg);
+    color: var(--color-fg);
+  }
+
+  body {
+    margin: 0;
+    font-family: var(--font-sans);
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled),
+  summary {
+    cursor: pointer;
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+}
+
+.leaflet-container {
+  height: 100%;
+  width: 100%;
+  background: var(--color-bg);
+  font-family: var(--font-sans);
+  outline: none;
+}
+
+.leaflet-container .leaflet-control-container {
+  z-index: 5;
+}
+
+.leaflet-container img.leaflet-tile {
+  max-width: none !important;
+  max-height: none !important;
+}
+
+.leaflet-control-attribution {
+  background: color-mix(in oklab, var(--color-bg) 72%, transparent) !important;
+  color: var(--color-muted);
+  font-size: 10px;
+}
+
+.leaflet-control-attribution a {
+  color: var(--color-primary);
+}
+
+.leaflet-bar a {
+  background: var(--color-surface) !important;
+  color: var(--color-fg) !important;
+  border-bottom-color: var(--color-border) !important;
+}
+
+.leaflet-bar a:hover {
+  background: var(--color-surface-2) !important;
+}
+
+.leaflet-tooltip {
+  background: var(--color-surface);
+  color: var(--color-fg);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  box-shadow: none;
+  font-size: 11px;
+}
+
+.leaflet-tooltip-top::before {
+  border-top-color: var(--color-surface);
+}
+
+.survey-pin {
+  background: none !important;
+  border: none !important;
+}
+
+.survey-pin-ring,
+.survey-pin-dot {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  border-radius: 999px;
+}
+
+.survey-pin-ring {
+  width: 22px;
+  height: 22px;
+  border: 1.5px solid #e7eeea;
+  box-shadow: 0 0 0 4px rgb(11 16 15 / 0.35);
+}
+
+.survey-pin-dot {
+  width: 7px;
+  height: 7px;
+  background: #6fbfb2;
+}
+
+.bird-mark {
+  background: none !important;
+  border: none !important;
+}
+
+.bird-mark-dot {
+  display: block;
+  width: 10px;
+  height: 10px;
+  margin: 3px auto;
+  background: #6fbfb2;
+  box-shadow: 0 0 0 2px rgb(11 16 15 / 0.45);
+  transform: rotate(45deg);
+}
+
+.wind-barb {
+  background: none !important;
+  border: none !important;
+}
+
+.wind-barb-arrow {
+  display: block;
+  width: 0;
+  height: 0;
+  margin: 6px auto 0;
+  border-right: 5px solid transparent;
+  border-bottom: 14px solid #e0a36a;
+  border-left: 5px solid transparent;
+  transform-origin: 50% 80%;
+}
+
+.report-paper {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media print {
+  body {
+    overflow: visible;
+    background: white;
+    color: black;
+  }
+
+  body * {
+    visibility: hidden;
+  }
+
+  #report-scroll,
+  #report-scroll * {
+    visibility: visible;
+  }
+
+  #report-scroll {
+    position: absolute;
+    inset: 0;
+    height: auto;
+    overflow: visible;
+    background: white;
+    color: black;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+}

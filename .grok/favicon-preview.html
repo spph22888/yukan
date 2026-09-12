@@ -1,0 +1,19 @@
+<!doctype html><html><body style="margin:0;background:#000">
+<canvas id="c16" width="16" height="16"></canvas>
+<canvas id="c32" width="32" height="32"></canvas>
+<canvas id="c64" width="64" height="64"></canvas>
+<script>
+const svg = "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 32 32\">\n  <rect width=\"32\" height=\"32\" rx=\"7\" fill=\"#0b100f\"/>\n  <path fill=\"#6fbfb2\" d=\"M16 4.5S8.4 14.2 8.4 19.5a7.6 7.6 0 1 0 15.2 0C23.6 14.2 16 4.5 16 4.5z\"/>\n  <ellipse cx=\"13.7\" cy=\"17.2\" rx=\"2.1\" ry=\"3.1\" fill=\"#e7eeea\" fill-opacity=\".32\"/>\n</svg>\n";
+const blob = new Blob([svg], {type: "image/svg+xml"});
+const url = URL.createObjectURL(blob);
+const img = new Image();
+img.onload = () => {
+  for (const [id, size] of [["c16",16],["c32",32],["c64",64]]) {
+    const c = document.getElementById(id);
+    const ctx = c.getContext("2d");
+    ctx.drawImage(img, 0, 0, size, size);
+  }
+  document.title = "ready";
+};
+img.src = url;
+</script></body></html>

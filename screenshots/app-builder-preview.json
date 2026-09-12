@@ -1,0 +1,36 @@
+{
+  "url": "http://127.0.0.1:8080/",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "雨瞰 Yukan",
+      "hasCanvas": false,
+      "bodyTextLen": 957,
+      "bodyTextHash": "71aa435d2eff013e78f8d42d50421666d83576c1c0d2db6d064e1f00227241f8",
+      "bodyTextPrefix": "雨瞰 YUKAN 安装 登录 免费试用 YUKAN · 雨瞰 任意坐标的降雨、强风与鸟类活动研判 雨瞰对照规范风压、栖息地名录和",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-preview.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "雨瞰 Yukan",
+      "hasCanvas": false,
+      "bodyTextLen": 957,
+      "bodyTextHash": "71aa435d2eff013e78f8d42d50421666d83576c1c0d2db6d064e1f00227241f8",
+      "bodyTextPrefix": "雨瞰 YUKAN 安装 登录 免费试用 YUKAN · 雨瞰 任意坐标的降雨、强风与鸟类活动研判 雨瞰对照规范风压、栖息地名录和",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-preview-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/app-builder-preview.json"
+}
